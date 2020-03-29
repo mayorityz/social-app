@@ -7,9 +7,9 @@ import {
   Text,
   Button
 } from "react-native";
-import me from "../assets/localimages/bg.jpg";
+import me from "../assets/localimages/young-woman-laughing.jpg";
 
-class Login extends Component {
+class Register extends Component {
   state = {};
   render() {
     return (
@@ -23,11 +23,12 @@ class Login extends Component {
               color: "white"
             }}
           >
-            Login
+            New Account
           </Text>
           <TextInput placeholder="Enter Username" style={styles.inputField} />
+          <TextInput placeholder="Enter Email" style={styles.inputField} />
           <TextInput placeholder="Enter Password" style={styles.inputField} />
-          <Button title="login" color="#e83" />
+          <Button title="Create Account" color="#e83" />
         </View>
       </ImageBackground>
     );
@@ -50,10 +51,11 @@ const styles = StyleSheet.create({
   inputField: {
     borderColor: "#f6f6f6",
     borderBottomWidth: 1,
-    marginBottom: 25,
+    marginBottom: 15,
     fontFamily: "Julius",
-    padding: 10
+    padding: 10,
+    color: "#f6f6f6"
   }
 });
 
-export default Login;
+export default Register;

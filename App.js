@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from "react";
 import * as Font from "expo-font";
-import { StyleSheet, View } from "react-native";
+import { StyleSheet, View, ActivityIndicator } from "react-native";
 
 import Home from "./components/Home";
 import Login from "./components/Login";
+import Register from "./components/Register";
+import Stream from "./components/Stream";
+import Events from "./components/Events";
 
 export default function App() {
   const [fontLoaded, setLoaded] = useState(false);
@@ -15,21 +18,24 @@ export default function App() {
       Elite: require("./assets/fonts/SpecialElite-Regular.ttf"),
       Titan: require("./assets/fonts/TitanOne-Regular.ttf"),
       Ultra: require("./assets/fonts/Ultra-Regular.ttf")
-    });
-
-    setLoaded(true);
+    })
+      .then(() => setLoaded(true))
+      .catch(err => alert(err));
   });
   return fontLoaded ? (
     <View style={styles.container}>
-      <Login />
+      <Events />
     </View>
-  ) : null;
+  ) : (
+    <ActivityIndicator size="small" color="#00ff00" />
+  );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#22222a",
-    paddingTop: 20
+    paddingTop: 20,
+    overflow: "scroll"
   }
 });
